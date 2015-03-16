@@ -15,12 +15,12 @@
 
         function getDescription()
         {
-            return this->description;
+            return $this->description;
         }
 
         function save()
         {
-            $GLOBAL['DB']->exec("INSERT INTO tasks (description) VALUES ('{$this->getDescription()}')");
+            $GLOBALS['DB']->exec("INSERT INTO tasks (description) VALUES ('{$this->getDescription()}')");
         }
 
         static function getAll()
@@ -37,7 +37,7 @@
 
         static function deleteAll()
         {
-            $_SESSION['list_of_tasks'] = array();
+            $GLOBALS['DB']->exec("DELETE FROM tasks *;");
         }
     }
 ?>
